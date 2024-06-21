@@ -15,7 +15,8 @@ import { ChatOpenAI } from "@langchain/openai";
 const model = new ChatOpenAI({ temperature: 0.9, model: "gpt-3.5-turbo" });
 
 export const getAnswer = async (question: string) => {
-  return await model.invoke([new HumanMessage({ content: question })]);
+  return (await model.invoke([new HumanMessage({ content: question })]))
+    .content as string;
 };
 
 // export const loadTextFromFile = async (filePath = "./example.txt") => {
