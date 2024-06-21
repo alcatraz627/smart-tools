@@ -1,5 +1,5 @@
 "use server";
-import { getAnswer } from "@/chat";
+import { getAnswer } from "@/lib/chat";
 import { NextRequest, NextResponse } from "next/server";
 
 type ResponseData = {
