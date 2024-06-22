@@ -7,9 +7,14 @@ export async function askQuestion(
   formData: FormData
 ) {
   "use server";
-  const question = formData.get("question")?.toString();
+  try {
+    const question = formData.get("question")?.toString();
 
-  const answer = await getAnswer(question || "");
+    const answer = await getAnswer(question || "");
 
-  return { message: answer };
+    return { message: answer };
+  } catch (error) {
+    console.error("Error: ", error);
+    return { message: "Error: " + `${error}` };
+  }
 }
