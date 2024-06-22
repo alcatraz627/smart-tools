@@ -1,5 +1,6 @@
 "use client";
 import { useFormState, useFormStatus } from "react-dom";
+import { askQuestion } from "./actions";
 
 // const selectedCtxSource: CtxLoadingSources = CtxLoadingSources.Input_Text;
 
@@ -27,7 +28,7 @@ export default function Home() {
   // const [state, action] = useFormState(askQuestion, {
   //   message: "",
   // });
-  const [state, action] = useFormState(() => ({ message: "" }), {
+  const [state, action] = useFormState(askQuestion, {
     message: "",
   });
 
